@@ -9,6 +9,7 @@ import com.zk.miaosha.service.model.UserModel;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import sun.misc.BASE64Encoder;
@@ -18,6 +19,8 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 import static com.zk.miaosha.controller.BaseController.CONTENT_TYPE_FORMED;
 
@@ -35,6 +38,9 @@ public class UserController {
 
     @Autowired
     private HttpServletRequest httpServletRequest;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     //用户注册接口
     @RequestMapping(value = "/register",method = {RequestMethod.POST},consumes={CONTENT_TYPE_FORMED})
@@ -59,7 +65,7 @@ public class UserController {
         userModel.setRegisterMode("byphone");
         userModel.setEncrptPassword(this.EncodeByMd5(password));
         userService.register(userModel);
-        return CommonReturnType.create(null);
+        return CommonReturnType.create("注册成功");
     }
 
     /**
@@ -85,9 +91,21 @@ public class UserController {
         //用户登陆服务,用来校验用户登陆是否合法
         UserModel userModel = userService.validateLogin(telphone,this.EncodeByMd5(password));
         //将登陆凭证加入到用户登陆成功的session内
-        this.httpServletRequest.getSession().setAttribute("IS_LOGIN",true);
-        this.httpServletRequest.getSession().setAttribute("LOGIN_USER",userModel);
-        return CommonReturnType.create(null);
+
+
+        //修改成若用户登录验证成功后将对应的登录信息和登录凭证一起存入redis中
+
+        //生成登录凭证token，UUID
+        String uuidToken = UUID.randomUUID().toString();
+        uuidToken = uuidToken.replace("-","");
+        //建议token和用户登陆态之间的联系
+        redisTemplate.opsForValue().set(uuidToken,userModel);
+        redisTemplate.expire(uuidToken,1, TimeUnit.HOURS);
+
+//        this.httpServletRequest.getSession().setAttribute("IS_LOGIN",true);
+//        this.httpServletRequest.getSession().setAttribute("LOGIN_USER",userModel);
+        // 下发了token
+        return CommonReturnType.create(uuidToken);
     }
 
 
@@ -108,7 +126,8 @@ public class UserController {
         httpServletRequest.getSession().setAttribute(telphone,otpCode);
         //将OTP验证码通过短信通道发送给用户,省略
         System.out.println("telphone = " + telphone + " & otpCode = "+otpCode);
-        return CommonReturnType.create(null);
+        return CommonReturnType.create("验证码已发送");
+
     }
 
 
