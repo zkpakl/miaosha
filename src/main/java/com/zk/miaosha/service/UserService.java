@@ -5,7 +5,9 @@ import com.zk.miaosha.error.BusinessException;
 import com.zk.miaosha.service.model.UserModel;
 
 /**
- * Created by hzllb on 2018/11/11.
+ * @Auther: zuokun
+ * @Date: 2021/4/01
+ * @Description:
  */
 public interface UserService {
     //通过用户ID获取用户对象的方法

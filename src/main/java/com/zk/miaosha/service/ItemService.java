@@ -7,7 +7,9 @@ import com.zk.miaosha.service.model.ItemModel;
 import java.util.List;
 
 /**
- * Created by hzllb on 2018/11/18.
+ * @Auther: zuokun
+ * @Date: 2021/4/01
+ * @Description:
  */
 public interface ItemService {
 

@@ -10,7 +10,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by hzllb on 2018/11/14.
+ * @Auther: zuokun
+ * @Date: 2021/4/01
+ * @Description:
  */
 public class BaseController {
     public static final String CONTENT_TYPE_FORMED="application/x-www-form-urlencoded";

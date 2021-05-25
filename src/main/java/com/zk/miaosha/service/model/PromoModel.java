@@ -7,7 +7,9 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * Created by hzllb on 2018/11/18.
+ * @Auther: zuokun
+ * @Date: 2021/4/01
+ * @Description:
  */
 public class PromoModel implements Serializable {
     private Integer id;

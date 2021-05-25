@@ -9,9 +9,10 @@ import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.stereotype.Component;
 
 /**
- *
+ * @Auther: zuokun
+ * @Date: 2021/4/01
+ * @Description: 当Spring容器内没有TomcatEmbeddedServletContainerFactory这个bean时，会吧此bean加载进spring容器中
  */
-//当Spring容器内没有TomcatEmbeddedServletContainerFactory这个bean时，会吧此bean加载进spring容器中
 @Component
 public class WebServerConfiguration implements WebServerFactoryCustomizer<ConfigurableWebServerFactory> {
     @Override

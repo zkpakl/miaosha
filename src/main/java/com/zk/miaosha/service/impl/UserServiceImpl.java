@@ -20,7 +20,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Created by hzllb on 2018/11/11.
+ * @Auther: zuokun
+ * @Date: 2021/4/01
+ * @Description:
  */
 @Service
 public class UserServiceImpl implements UserService {
@@ -80,7 +82,6 @@ public class UserServiceImpl implements UserService {
         }
         UserPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userDO.getId());
         UserModel userModel = convertFromDataObject(userDO,userPasswordDO);
-
         //比对用户信息内加密的密码是否和传输进来的密码相匹配
         if(!StringUtils.equals(encrptPassword,userModel.getEncrptPassword())){
             throw new BusinessException(EmBusinessError.USER_LOGIN_FAIL);

@@ -7,7 +7,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- * Created by hzllb on 2018/11/18.
+ * @Auther: zuokun
+ * @Date: 2021/4/01
+ * @Description:
  */
 public class ItemModel implements Serializable{
     private Integer id;

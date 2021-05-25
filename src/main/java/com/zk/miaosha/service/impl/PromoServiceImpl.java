@@ -13,7 +13,9 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 
 /**
- * Created by hzllb on 2018/11/18.
+ * @Auther: zuokun
+ * @Date: 2021/4/01
+ * @Description:
  */
 @Service
 public class PromoServiceImpl implements PromoService {
@@ -21,6 +23,11 @@ public class PromoServiceImpl implements PromoService {
     @Autowired
     private PromoDOMapper promoDOMapper;
 
+    /**
+     * 获取活动商品信息状态
+     * @param itemId
+     * @return
+     */
     @Override
     public PromoModel getPromoByItemId(Integer itemId) {
         //获取对应商品的秒杀活动信息

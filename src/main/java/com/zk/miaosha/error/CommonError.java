@@ -1,7 +1,9 @@
 package com.zk.miaosha.error;
 
 /**
- * Created by hzllb on 2018/11/13.
+ * @Auther: zuokun
+ * @Date: 2021/4/01
+ * @Description:
  */
 public interface CommonError {
     public int getErrCode();

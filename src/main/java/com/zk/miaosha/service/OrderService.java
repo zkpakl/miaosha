@@ -4,7 +4,9 @@ import com.zk.miaosha.error.BusinessException;
 import com.zk.miaosha.service.model.OrderModel;
 
 /**
- * Created by hzllb on 2018/11/18.
+ * @Auther: zuokun
+ * @Date: 2021/4/01
+ * @Description:
  */
 public interface OrderService {
     //使用1,通过前端url上传过来秒杀活动id，然后下单接口内校验对应id是否属于对应商品且活动已开始

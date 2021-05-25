@@ -3,7 +3,9 @@ package com.zk.miaosha.service.model;
 import java.math.BigDecimal;
 
 /**
- * Created by hzllb on 2018/11/18.
+ * @Auther: zuokun
+ * @Date: 2021/4/01
+ * @Description:
  */
 //用户下单的交易模型
 public class OrderModel {

@@ -4,16 +4,16 @@ import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
- * Created by hzllb on 2018/11/11.
+ * @Auther: zuokun
+ * @Date: 2021/4/01
+ * @Description:
  */
 public class UserModel implements Serializable{
     private Integer id;
     @NotBlank(message = "用户名不能为空")
     private String name;
-
     @NotNull(message = "性别不能不填写")
-    private Byte gender;
-
+    private String gender;
     @NotNull(message = "年龄不能不填写")
     @Min(value = 0,message = "年龄必须大于0岁")
     @Max(value = 150,message = "年龄必须小于150岁")
@@ -50,11 +50,11 @@ public class UserModel implements Serializable{
         this.name = name;
     }
 
-    public Byte getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Byte gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

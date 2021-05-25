@@ -4,7 +4,9 @@ package com.zk.miaosha.service;
 import com.zk.miaosha.service.model.PromoModel;
 
 /**
- * Created by hzllb on 2018/11/18.
+ * @Auther: zuokun
+ * @Date: 2021/4/01
+ * @Description:
  */
 public interface PromoService {
     //根据itemid获取即将进行的或正在进行的秒杀活动

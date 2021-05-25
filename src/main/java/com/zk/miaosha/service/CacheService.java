@@ -1,7 +1,9 @@
 package com.zk.miaosha.service;
 
 /**
- * Created by hzllb on 2019/2/16.
+ * @Auther: zuokun
+ * @Date: 2021/4/01
+ * @Description:
  */
 //封装本地缓存操作类
 public interface CacheService {

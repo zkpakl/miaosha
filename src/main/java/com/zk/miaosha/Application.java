@@ -10,7 +10,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+/**
+ * @Auther: zuokun
+ * @Date: 2021/4/01
+ * @Description:
+ */
 @SpringBootApplication(scanBasePackages = {"com.zk.miaosha"})
 @MapperScan("com.zk.miaosha.dao")
 @RestController

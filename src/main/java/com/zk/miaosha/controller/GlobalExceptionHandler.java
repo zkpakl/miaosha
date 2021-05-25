@@ -17,7 +17,9 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 
 
 /**
- * Created by hzllb on 2018/12/22.
+ * @Auther: zuokun
+ * @Date: 2021/4/01
+ * @Description:
  */
 @ControllerAdvice
 public class GlobalExceptionHandler{

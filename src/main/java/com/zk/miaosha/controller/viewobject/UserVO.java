@@ -1,7 +1,9 @@
 package com.zk.miaosha.controller.viewobject;
 
 /**
- * Created by hzllb on 2018/11/11.
+ * @Auther: zuokun
+ * @Date: 2021/4/01
+ * @Description:
  */
 public class UserVO {
     private Integer id;
