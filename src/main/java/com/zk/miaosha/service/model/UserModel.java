@@ -4,9 +4,9 @@ import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
- * @author ZuoKun on 2021/3/31
+ * Created by hzllb on 2018/11/11.
  */
-public class UserModel implements Serializable {
+public class UserModel implements Serializable{
     private Integer id;
     @NotBlank(message = "用户名不能为空")
     private String name;

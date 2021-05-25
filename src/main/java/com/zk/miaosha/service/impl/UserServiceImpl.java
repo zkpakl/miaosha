@@ -16,26 +16,24 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
+
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * @author ZuoKun on 2021/3/30
+ * Created by hzllb on 2018/11/11.
  */
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDOMapper userDOMapper;
+
     @Autowired
     private UserPasswordDOMapper userPasswordDOMapper;
+
     @Autowired
     private ValidatorImpl validator;
 
-    /**
-     * 测试根据id查询用户
-     * @param id
-     * @return
-     */
     @Override
     public UserModel getUserById(Integer id) {
         //调用userdomapper获取到对应的用户dataobject
@@ -49,11 +47,6 @@ public class UserServiceImpl implements UserService {
         return convertFromDataObject(userDO,userPasswordDO);
     }
 
-    /**
-     * 用户注册功能
-     * @param userModel
-     * @throws BusinessException
-     */
     @Override
     @Transactional
     public void register(UserModel userModel) throws BusinessException {
@@ -74,16 +67,10 @@ public class UserServiceImpl implements UserService {
         userModel.setId(userDO.getId());
         UserPasswordDO userPasswordDO = convertPasswordFromModel(userModel);
         userPasswordDOMapper.insertSelective(userPasswordDO);
+
         return;
     }
 
-    /**
-     * 用户登陆接口
-     * @param telphone
-     * @param encrptPassword
-     * @return
-     * @throws BusinessException
-     */
     @Override
     public UserModel validateLogin(String telphone, String encrptPassword) throws BusinessException {
         //通过用户的手机获取用户信息
@@ -117,6 +104,7 @@ public class UserServiceImpl implements UserService {
         }
         UserDO userDO = new UserDO();
         BeanUtils.copyProperties(userModel,userDO);
+
         return userDO;
     }
     private UserModel convertFromDataObject(UserDO userDO, UserPasswordDO userPasswordDO){
@@ -125,9 +113,11 @@ public class UserServiceImpl implements UserService {
         }
         UserModel userModel = new UserModel();
         BeanUtils.copyProperties(userDO,userModel);
+
         if(userPasswordDO != null){
             userModel.setEncrptPassword(userPasswordDO.getEncrptPassword());
         }
+
         return userModel;
     }
 }

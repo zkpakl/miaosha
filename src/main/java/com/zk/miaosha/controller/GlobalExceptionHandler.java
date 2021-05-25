@@ -16,9 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
 
-
 /**
- * @author ZuoKun on 2021/3/31
+ * Created by hzllb on 2018/12/22.
  */
 @ControllerAdvice
 public class GlobalExceptionHandler{

@@ -1,6 +1,5 @@
 package com.zk.miaosha.controller;
 
-
 import com.zk.miaosha.error.BusinessException;
 import com.zk.miaosha.error.EmBusinessError;
 import com.zk.miaosha.response.CommonReturnType;
@@ -37,8 +36,8 @@ public class OrderController extends BaseController {
     public CommonReturnType createOrder(@RequestParam(name="itemId")Integer itemId,
                                         @RequestParam(name="amount")Integer amount,
                                         @RequestParam(name="promoId",required = false)Integer promoId) throws BusinessException {
-        // Boolean isLogin = (Boolean) httpServletRequest.getSession().getAttribute("IS_LOGIN");
 
+        //Boolean isLogin = (Boolean) httpServletRequest.getSession().getAttribute("IS_LOGIN");
         String token = httpServletRequest.getParameterMap().get("token")[0];
         if(StringUtils.isEmpty(token)){
             throw new BusinessException(EmBusinessError.USER_NOT_LOGIN,"用户还未登陆，不能下单");
@@ -49,8 +48,11 @@ public class OrderController extends BaseController {
             throw new BusinessException(EmBusinessError.USER_NOT_LOGIN,"用户还未登陆，不能下单");
         }
 
+
         //UserModel userModel = (UserModel)httpServletRequest.getSession().getAttribute("LOGIN_USER");
+
         OrderModel orderModel = orderService.createOrder(userModel.getId(),itemId,promoId,amount);
+
         return CommonReturnType.create(null);
     }
 }

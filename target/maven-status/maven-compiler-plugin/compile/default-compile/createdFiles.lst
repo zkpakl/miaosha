@@ -1,5 +1,6 @@
 com\zk\miaosha\error\BusinessException.class
 com\zk\miaosha\dataobject\OrderDO.class
+com\zk\miaosha\serializer\JodaDateTimeJsonDeserializer.class
 com\zk\miaosha\service\PromoService.class
 com\zk\miaosha\config\WebServerConfiguration$1.class
 com\zk\miaosha\dao\ItemStockDOMapper.class
@@ -30,6 +31,8 @@ com\zk\miaosha\controller\viewobject\ZuulException.class
 com\zk\miaosha\validator\ValidatorImpl.class
 com\zk\miaosha\controller\UserController.class
 com\zk\miaosha\controller\GlobalExceptionHandler.class
+com\zk\miaosha\service\impl\CacheServiceImpl.class
+com\zk\miaosha\serializer\JodaDateTimeJsonSerializer.class
 com\zk\miaosha\error\CommonError.class
 com\zk\miaosha\dao\UserPasswordDOMapper.class
 com\zk\miaosha\dataobject\UserPasswordDO.class
@@ -37,6 +40,7 @@ com\zk\miaosha\service\model\OrderModel.class
 com\zk\miaosha\dao\UserDOMapper.class
 com\zk\miaosha\controller\ItemController.class
 com\zk\miaosha\service\model\PromoModel.class
+com\zk\miaosha\service\CacheService.class
 com\zk\miaosha\service\impl\OrderServiceImpl.class
 com\zk\miaosha\dao\OrderDOMapper.class
 com\zk\miaosha\dao\PromoDOMapper.class
